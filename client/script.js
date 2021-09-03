@@ -94,15 +94,15 @@ document.getElementById("animals-button").addEventListener("click", ohMy);
 */
 
 const repeatMyParam = () => {
-  axios.get('http://localhost:3000/repeat/jakeisawesomeatcoding').then((res) => {
-    console.log(res.data);
-    const newParam = document.querySelector('#repeat-text')
-    newParam.textContent = res.data
-    newParam.style.display = "block"
-  });
-
+  axios
+    .get("http://localhost:3000/repeat/jakeisawesomeatcoding")
+    .then((res) => {
+      console.log(res.data);
+      const newParam = document.querySelector("#repeat-text");
+      newParam.textContent = res.data;
+      newParam.style.display = "block";
+    });
 };
-
 
 document.querySelector("#repeat-button").addEventListener("click", repeatMyParam);
 // PROBLEM 7
@@ -123,8 +123,16 @@ document.querySelector("#repeat-button").addEventListener("click", repeatMyParam
     Outside of your new function, select the button with the id "query-button" and add a click event listener that calls your function.
 */
 
-// CODE HERE
+function attachQuery() {
+  axios.get("http://localhost:3000/query-test/?'Jake'").then((res) => {
+    console.log(res.data);
+    const cusQue = document.querySelector("#query-button");
+    cusQue.textContent = res.data;
+    cusQue.style.display = "block";
+  });
+}
 
+document.querySelector("#query-button").addEventListener("click", attachQuery);
 ////////////////
 //INTERMEDIATE//
 ////////////////
